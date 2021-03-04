@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <title>Posty</title>
 </head>
 <body class="bg-gray-200">
@@ -24,7 +25,10 @@
         <ul class="flex items-center">
             @auth
                 <li>
+                    <i class="fa fa-user-circle text-2xl    " aria-hidden="true"></i>
+                    <span>
                     <a href="#"class="p-3">{{ auth()->user()->name }}</a>
+                </span>
                 </li>
                 <li>
                     <form action="{{route('logout')}}" method="post" class="p-3 inline">
