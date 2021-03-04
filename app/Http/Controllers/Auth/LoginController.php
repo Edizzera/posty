@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['guest']);
+    }
+
     public function index()
     {
         
@@ -25,7 +30,8 @@ class LoginController extends Controller
 
         //sign th user
         $credentials = $request->only(['email', 'password']);
-        if(!Auth::attempt($credentials)) {
+        $remember = $request->remember;
+        if(!Auth::attempt($credentials,$remember)) {
             return back()->with('status', 'Invalid Login Details');
         };
 
